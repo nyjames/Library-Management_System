@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on win32)" generated="2024-11-07T14:19:03.721962" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot-Tests" source="C:\Users\ajdud\Desktop\fa24project-fa24project_team_4\src\test-scripts\robot-tests">
+<suite id="s1-s1" name="Test Admin Login" source="C:\Users\ajdud\Desktop\fa24project-fa24project_team_4\src\test-scripts\robot-tests\test_admin_login.robot">
+<test id="s1-s1-t1" name="Test Login Page" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:04.218370" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8000/admin/login/'.</msg>
+<arg>${SERVER_URL}/admin/login/</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:04.218370" elapsed="1.564749"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:05.787796" level="INFO">Typing text 'wsv' into text field 'id=id_username'.</msg>
+<arg>id=id_username</arg>
+<arg>wsv</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:05.787796" elapsed="0.070635"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:05.858431" level="INFO">Typing text 'CSC256_FA2024' into text field 'id=id_password'.</msg>
+<arg>id=id_password</arg>
+<arg>CSC256_FA2024</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:05.858431" elapsed="0.105439"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:05.964022" level="INFO">Clicking button 'xpath=//input[@type="submit"]'.</msg>
+<arg>xpath=//input[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:05.964022" elapsed="0.652795"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:06.633952" level="INFO">Current page contains text 'Site administration'.</msg>
+<arg>Site administration</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-07T14:19:06.623485" elapsed="0.010467"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-07T14:19:06.633952" elapsed="2.087125"/>
+</kw>
+<doc>Verify that the admin login page works.</doc>
+<status status="PASS" start="2024-11-07T14:19:04.218370" elapsed="4.502707"/>
+</test>
+<status status="PASS" start="2024-11-07T14:19:03.753599" elapsed="4.967478"/>
+</suite>
+<suite id="s1-s2" name="Test User Signup Login" source="C:\Users\ajdud\Desktop\fa24project-fa24project_team_4\src\test-scripts\robot-tests\test_user_signup_login.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2024-11-07T14:19:08.721077" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:8000'.</msg>
+<arg>http://localhost:8000</arg>
+<arg>Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:08.721077" elapsed="1.537621"/>
+</kw>
+<test id="s1-s2-t1" name="User Signup Test" line="23">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.263062" level="INFO">Opening url 'http://localhost:8000/accounts/signup/'</msg>
+<arg>${SIGNUP_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.263062" elapsed="0.033679"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.297761" level="INFO">Typing text 'testuser' into text field 'id=id_username'.</msg>
+<arg>id=id_username</arg>
+<arg>testuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.297385" elapsed="0.077102"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.374487" level="INFO">Typing text 'testuser@example.com' into text field 'id=id_email'.</msg>
+<arg>id=id_email</arg>
+<arg>testuser@example.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.374487" elapsed="0.097079"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.478361" level="INFO">Typing text '30' into text field 'id=id_age'.</msg>
+<arg>id=id_age</arg>
+<arg>30</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.471566" elapsed="0.063276"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.534842" level="INFO">Typing text 'TestPass123!' into text field 'id=id_password1'.</msg>
+<arg>id=id_password1</arg>
+<arg>TestPass123!</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.534842" elapsed="0.075515"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.610357" level="INFO">Typing text 'TestPass123!' into text field 'id=id_password2'.</msg>
+<arg>id=id_password2</arg>
+<arg>TestPass123!</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.610357" elapsed="0.071605"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.681962" level="INFO">Clicking button 'xpath=//button[@type="submit"]'.</msg>
+<arg>xpath=//button[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.681962" elapsed="0.066024"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.856529" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-11-07T14:19:10.856529" level="FAIL">Page should have contained text 'Welcome to your dashboard' but did not.</msg>
+<arg>Welcome to your dashboard</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="FAIL" start="2024-11-07T14:19:10.747986" elapsed="0.108543">Page should have contained text 'Welcome to your dashboard' but did not.</status>
+</kw>
+<doc>Test the user signup process.</doc>
+<status status="FAIL" start="2024-11-07T14:19:10.258698" elapsed="0.597831">Page should have contained text 'Welcome to your dashboard' but did not.</status>
+</test>
+<test id="s1-s2-t2" name="User Login Test" line="34">
+<kw name="User Login">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.856529" level="INFO">Opening url 'http://localhost:8000/accounts/login/'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.856529" elapsed="0.031143"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.888177" level="INFO">Typing text 'wsv' into text field 'id=id_username'.</msg>
+<arg>id=id_username</arg>
+<arg>wsv</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.888077" elapsed="0.038703"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:10.927782" level="INFO">Typing text 'CSC256_FA2024' into text field 'id=id_password'.</msg>
+<arg>id=id_password</arg>
+<arg>CSC256_FA2024</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.927782" elapsed="0.073570"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:11.001352" level="INFO">Clicking button 'xpath=//input[@type="submit"]'.</msg>
+<arg>xpath=//input[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:11.001352" elapsed="0.624633"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:11.629588" level="INFO">Current location is 'http://localhost:8000/'.</msg>
+<arg>${BASE_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:11.625985" elapsed="0.003603"/>
+</kw>
+<doc>Test the user login process.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.856529" elapsed="0.773059"/>
+</kw>
+<doc>Test the user login process.</doc>
+<status status="PASS" start="2024-11-07T14:19:10.856529" elapsed="0.773589"/>
+</test>
+<test id="s1-s2-t3" name="Invalid Login Test" line="38">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:11.630118" level="INFO">Opening url 'http://localhost:8000/accounts/login/'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:11.630118" elapsed="0.023372"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:11.653490" level="INFO">Typing text 'fakeuser' into text field 'id=id_username'.</msg>
+<arg>id=id_username</arg>
+<arg>fakeuser</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:11.653490" elapsed="0.051662"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:11.705152" level="INFO">Typing text 'wrongpassword' into text field 'id=id_password'.</msg>
+<arg>id=id_password</arg>
+<arg>wrongpassword</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:11.705152" elapsed="0.069818"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:11.774970" level="INFO">Clicking button 'xpath=//input[@type="submit"]'.</msg>
+<arg>xpath=//input[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:11.774970" elapsed="0.572294"/>
+</kw>
+<kw name="Page Should Contain" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:12.359679" level="INFO">Current page contains text 'Please enter a correct username and password.'.</msg>
+<arg>Please enter a correct username and password.</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<status status="PASS" start="2024-11-07T14:19:12.347264" elapsed="0.012415"/>
+</kw>
+<doc>Ensure invalid login attempts are handled.</doc>
+<status status="PASS" start="2024-11-07T14:19:11.630118" elapsed="0.730581"/>
+</test>
+<test id="s1-s2-t4" name="Logout Test" line="46">
+<kw name="User Login">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:12.361701" level="INFO">Opening url 'http://localhost:8000/accounts/login/'</msg>
+<arg>${LOGIN_URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:12.361701" elapsed="0.011200"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:12.372901" level="INFO">Typing text 'wsv' into text field 'id=id_username'.</msg>
+<arg>id=id_username</arg>
+<arg>wsv</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:12.372901" elapsed="0.055449"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:12.428350" level="INFO">Typing text 'CSC256_FA2024' into text field 'id=id_password'.</msg>
+<arg>id=id_password</arg>
+<arg>CSC256_FA2024</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:12.428350" elapsed="0.073988"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:12.502338" level="INFO">Clicking button 'xpath=//input[@type="submit"]'.</msg>
+<arg>xpath=//input[@type="submit"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:12.502338" elapsed="0.599231"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:13.105956" level="INFO">Current location is 'http://localhost:8000/'.</msg>
+<arg>${BASE_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:13.101569" elapsed="0.004387"/>
+</kw>
+<doc>Test the user login process.</doc>
+<status status="PASS" start="2024-11-07T14:19:12.360699" elapsed="0.745257"/>
+</kw>
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:13.105956" level="INFO">Clicking link 'xpath=//a[contains(text(), "Logout")]'.</msg>
+<arg>xpath=//a[contains(text(), "Logout")]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-07T14:19:13.105956" elapsed="0.103239"/>
+</kw>
+<kw name="Location Should Be" owner="SeleniumLibrary">
+<msg time="2024-11-07T14:19:13.209998" level="INFO">Current location is 'http://localhost:8000/accounts/logout/'.</msg>
+<arg>${LOGOUT_URL}</arg>
+<doc>Verifies that the current URL is exactly ``url``.</doc>
+<status status="PASS" start="2024-11-07T14:19:13.209195" elapsed="0.000803"/>
+</kw>
+<doc>Test the logout functionality.</doc>
+<tag>logout</tag>
+<status status="PASS" start="2024-11-07T14:19:12.360699" elapsed="0.849299"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-11-07T14:19:13.209998" elapsed="2.089457"/>
+</kw>
+<status status="FAIL" start="2024-11-07T14:19:08.721077" elapsed="6.578378"/>
+</suite>
+<status status="FAIL" start="2024-11-07T14:19:03.721962" elapsed="11.577493"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">logout</stat>
+</tag>
+<suite>
+<stat pass="4" fail="1" skip="0" id="s1" name="Robot-Tests">Robot-Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test Admin Login">Robot-Tests.Test Admin Login</stat>
+<stat pass="3" fail="1" skip="0" id="s1-s2" name="Test User Signup Login">Robot-Tests.Test User Signup Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

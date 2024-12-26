@@ -1,0 +1,1 @@
+# Playwright-specific test plan
