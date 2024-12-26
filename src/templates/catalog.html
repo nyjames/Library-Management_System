@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Book Catalog
+{% endblock title %}
+
+{% block content %}
+
+    {% if user.is_authenticated %}
+
+        <p><h1>Book Catalog</h1></p>    
+        <h2>User: {{ user.username }}</h2></p>
+        <table style="width: 100%; text-align: left; padding-left: 25px; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Title</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Author</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">ISBN</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Publisher</th>
+                    <th style="border: 1px solid #ddd; padding: 8px;">Category</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td style="border: 1px solid #ddd; padding: 4px; font-weight:bold;">{{ book.title }}</td>
+                        <td style="border: 1px solid #ddd; padding: 4px; text-align: center;">{{ book.author }}</td>
+                        <td style="border: 1px solid #ddd; padding: 4px; text-align: center;">{{ book.isbn }}</td>
+                        <td style="border: 1px solid #ddd; padding: 4px;">{{ book.publisher }}</td>
+                        <td style="border: 1px solid #ddd; padding: 4px;">{{ book.category }}</td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        <p> <a href="{% url 'home' %}">Home</a> </p>
+        <p> <a href="{% url 'logout' %}">Logout</a> </p>
+
+    {% else %}
+
+        <h1>Welcome, Please log in</h1>
+        <a href="{% url 'login' %}">Log in</a>
+        <a href="{% url 'signup' %}">Sign up</a>
+
+    {% endif %}
+
+{% endblock content %}

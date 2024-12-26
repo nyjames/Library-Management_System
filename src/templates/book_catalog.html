@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Book Catalog{% endblock title %}
+
+{% block content %}
+    <div class="container">
+        <h2 class="mt-5">Book Catalog</h2>
+        
+        <!-- Search Form -->
+        <form method="get" class="mb-4">
+            <input type="text" name="search" placeholder="Search by title, author, etc." value="{{ search_query }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <!-- Display Error Message -->
+        {% if error_message %}
+            <div class="alert alert-danger">
+                {{ error_message }}
+            </div>
+        {% endif %}
+
+        <!-- Display Book List -->
+        <ul class="list-group">
+            {% for book in books %}
+                <li class="list-group-item">
+                    <strong>
+                        <!-- Link to Book Details Page with Book ID -->
+                        <a href="{% url 'catalog:book_detail' book.id|stringformat:'s' %}">{{ book.title }}</a>
+                    </strong><br>
+                    <!-- Author: Join authors if multiple authors exist -->
+                    Author: {{ book.author|join:" "|default:"Unknown Author" }}<br>
+                    ISBN: {{ book.isbn|default:"Not Available" }}<br>
+                    <!-- Genre: Join categories if multiple genres exist -->
+                    Genre: {{ book.genre|join:" "|default:"General" }}
+                </li>
+            {% empty %}
+                <!-- If no books are found, display a message -->
+                <li class="list-group-item">No books found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock content %}

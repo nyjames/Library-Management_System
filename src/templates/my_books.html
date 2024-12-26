@@ -1,0 +1,40 @@
+<!-- my_books.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <!-- User Account Details -->
+  <div>
+    <h2>User Account Details</h2>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Date Joined: {{ user.date_joined }}</p>
+  </div>
+  
+  <h2>My Books</h2>
+  
+  {% if books %}
+    <ul>
+      {% for book in books %}
+        <li>
+          <strong>
+            <a href="{% url 'catalog:book_detail' book.id %}">
+              {{ book.title }}
+            </a>
+          </strong><br>
+          Author: {{ book.author }}<br>
+          Genre: {{ book.genre }}<br>
+          ISBN: {{ book.isbn }}<br>
+          Published Date: {{ book.published_date }}<br>
+          {% if book.available %}
+            <span>Available for checkout</span>
+          {% else %}
+            <span>Currently checked out</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>You have no books checked out.</p>
+  {% endif %}
+  
+{% endblock %}
