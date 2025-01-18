@@ -1,8 +1,7 @@
 """
 " pytest and pytest-django are required packages to run these tests
 """
-
-from Library_Management_System import pytest
+import pytest
 from .models import CustomUser
 from django.urls import reverse
 
