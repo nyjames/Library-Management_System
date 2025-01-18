@@ -1,7 +1,6 @@
 > [!NOTE]
 > This would be a living document and will change as your Group progresses.. Example Topics/Stubs: 
 
-# Project Title
 Library Management System.
 
 ## Introduction or Background
