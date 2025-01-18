@@ -27,6 +27,13 @@
     </form>
 {% endif %}
 
+<h3> Reviews </h3>
+<ul>
+    {% for review in book.reviews.all %}
+    <li>{{ review.review }} {{ review.author }}</li>
+    {% endfor %}
+</ul>
+
 <!-- Add a button to continue browsing -->
 <div style="margin-top: 20px;">
     <form action="{% url 'catalog:book_catalog' %}" method="get">
