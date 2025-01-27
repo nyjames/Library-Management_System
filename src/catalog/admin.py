@@ -6,11 +6,9 @@ from .models import Book, Review
 class ReviewInline(admin.TabularInline):
     model = Review
 
-class bookAdmin(admin.ModelAdmin):
-    inlines = [
-        ReviewInline,
-    ]
-    
-    list_display = ('title', 'author', 'genre', 'available', 'published_date', 'isbn')
+class BookAdmin(admin.ModelAdmin):
+    inlines = [ReviewInline]
 
-admin.site.register(Book, bookAdmin)
+
+admin.site.register(Book)
+admin.site.register(Review)
