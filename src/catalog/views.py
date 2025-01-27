@@ -2,7 +2,7 @@ import requests
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
-from catalog.models import Book
+from catalog.models import Book, Review
 from django.conf import settings
 import re
 import random
@@ -138,6 +138,8 @@ def search_books(query, max_results=10):
                 industry_ids = book_data.get('industryIdentifiers', [])
                 isbn = industry_ids[0]['identifier'] if industry_ids else "Unknown ISBN"
                 genre = book_data.get('categories', ['Unknown Genre'])[0]
+                description = book_data.get('description', 'No description available')
+
 
                 if not isbn:
                     continue
@@ -149,6 +151,7 @@ def search_books(query, max_results=10):
                         'title': title,
                         'author': authors[0],
                         'genre': genre,
+                        'description': description,
                     }
                 )
                 books.append(book)
