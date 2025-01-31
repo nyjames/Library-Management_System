@@ -1,8 +1,20 @@
 <!-- catalog/book_detail.html -->
 
+<!-- This is the template for the book detail view -->
+<!-- It displays book information, availability, and reviews -->
+<!-- Functions on page -->
+<!-- 1. provides a link to edit a review if the user is the author -->
+<!-- 2. provides a link to add a review if the user is logged in -->
+<!-- 3. provides a link to continue browsing -->
+
+
 {% extends 'base.html' %}
 
+
 {% block content %}
+
+<!-- Display book information -->
+
 <h1>{{ book.title }}</h1>
 <p><strong>Author:</strong> {{ book.author }}</p>
 <p><strong>ISBN:</strong> {{ book.isbn }}</p>
@@ -10,38 +22,83 @@
 <p><strong>Published Date:</strong> {{ book.published_date }}</p>
 <p><strong>Description:</strong> {{ book.description }}</p>
 
+<!-- Display book availability -->
+
 {% if book.checked_out_by %}
     {% if book.checked_out_by == user %}
         <p>You have checked out this book.</p>
+
+        <!-- provide a link to return the book -->
 
         <form method="post">
             {% csrf_token %}
             <button type="submit">Return this book</button>
         </form>
+
     {% else %}
+
         <p>This book is currently checked out by another user.</p>
+
     {% endif %}
+
 {% else %}
+
     <p>This book is available for checkout.</p>
+
+    <!-- provide a link to checkout the book -->
+
     <form method="post">
         {% csrf_token %}
         <button type="submit">Checkout this book</button>
     </form>
+
 {% endif %}
+
+<!-- Display reviews and provide a link to edit or add a review -->
 
 <h3> Reviews </h3>
 <ul>
-    {% for review in book.reviews.all %}
-    <li>{{ review.review }} {{ review.author }}</li>
+    {% for post in book.posts.all %}
+
+    <!-- display the author and body of the review -->
+    
+    <li>{{ post.author }}</li>
+    <p>{{ post.body }}</p>
+
+    <!-- provide a link to edit the review if the user is the author -->
+
+    {% if post.author == user %}
+
+        <!-- <a href="{% url 'post_delete' book_id=book.id pk=post.id %}">Delete Article</a> -->
+
+        <a href="{% url 'post_edit' book_id=book.id pk=post.id %}">Edit Post</a>
+
+    {% endif %}
     {% endfor %}
+
 </ul>
 
-<!-- Add a review form -->
+<!-- Add a comment section -->
+
+{% for comment in post.comment_set.all %}
+<li>{{ comment.author }} </li>
+<li>{{ comment.body }} </li>
+{% endfor %}
+
+<!-- provide a link to add a review if the user is logged in -->
+
+{% if not post.id %}
+    <a href="{% url 'post_form' book_id=book.id %}">Add Post</a>
+{% else %}
+    <a href="{% url 'post_detail' book_id=book.id pk=post.id %}">View Post</a>
+{% endif %}
 
 <!-- Add a button to continue browsing -->
+
 <div style="margin-top: 20px;">
     <form action="{% url 'catalog:book_catalog' %}" method="get">
         <button type="submit">Continue Browsing</button>
     </form>
 </div>
 {% endblock %}
+
