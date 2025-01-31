@@ -30,4 +30,8 @@ urlpatterns = [
 
     # Catalog of books
     path('catalog/', include('catalog.urls')),
+
+    # Posts
+    path('posts/', include('posts.urls')),
+
 ]

@@ -39,11 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms', # New
+    'crispy_forms',
 
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig', 
     'catalog.apps.CatalogConfig',
+    'posts.apps.PostsConfig',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +144,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes"
 API_KEY = "AIzaSyCcl9iI2wh5DSu5HYpK3NO_5O47fdIhnG8"
+
+MEDIA_URL= '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
