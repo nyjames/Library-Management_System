@@ -149,4 +149,3 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes"
-API_KEY = "AIzaSyCcl9iI2wh5DSu5HYpK3NO_5O47fdIhnG8"
